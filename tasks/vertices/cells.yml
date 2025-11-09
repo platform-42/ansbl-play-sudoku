@@ -1,18 +1,25 @@
 ---
-- name: "create account:{{ item.name }}"
+- name: "create Cell:{{ item.row }}{{ item.column }}"
   platform42.neo4j.vertex:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
-    label: Account
-    entity_name: "{{ item.id }}"
+    label: Cell
+    entity_name: "{{ item.row }}{{ item.column }}"
     state: PRESENT
     properties:
-      name: 
-        value: "{{ item.name }}"
-        type: str
-  register: account
+      row: 
+        type: int
+        value: "{{ item.row }}"
+      column: 
+        type: int
+        value: "{{ item.column }}"
+      domain:
+        type: list
+        value: "{{ item.domain }}"
+        element_type: int
+  register: cell
 
 - name: print account vertex
   ansible.builtin.debug:
