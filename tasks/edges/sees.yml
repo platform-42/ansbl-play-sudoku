@@ -1,30 +1,16 @@
 ---
-- name: "create transaction {{ item.amount }} TRANSACTION:{{ item.from }} - {{ item.to }}"
+- name: "create SEES: C{{ item.from.row }}{{ item.from.column }} -> C{{ item.to.row }}{{ item.to.column }}"
   platform42.neo4j.edge:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
-    type: TRANSACTION
-    from:
-      label: Account
-      entity_name: "{{ item.from }}"
-    to:
-      label: Account
-      entity_name: "{{ item.to }}"
+    label: SEES
+    from_entity:
+      label: Cell
+      entity_name: "C{{ item.from.row }}{{ item.from.column }}"
+    to_entity:
+      label: Cell
+      entity_name: "C{{ item.to.row }}{{ item.to.column }}"
     state: PRESENT
-    properties:
-      amount: 
-        value: "{{ item.amount }}"
-        type: float
-      timestamp: 
-        value: "{{ item.timestamp }}"
-        type: datetime
-    unique_key: timestamp
-  register: transaction
-
-- name: print TRANSACTION relationship stats
-  ansible.builtin.debug:
-    var: transaction.edge
-
-  
+  loop: "{{ sudoku_sees }}"

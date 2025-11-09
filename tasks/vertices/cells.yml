@@ -6,7 +6,7 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     label: Cell
-    entity_name: "{{ item.row }}{{ item.column }}"
+    entity_name: "C{{ item.row }}{{ item.column }}"
     state: PRESENT
     properties:
       row: 
