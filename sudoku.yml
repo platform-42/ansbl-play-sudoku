@@ -12,6 +12,7 @@
     - vars/vertices/row_7.yml
     - vars/vertices/row_8.yml
     - vars/vertices/row_9.yml
+    - vars/edges/sees.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
@@ -55,3 +56,7 @@
     - name: create 3x3 vertex matrix
       ansible.builtin.include_tasks: tasks/vertices/cells.yml
       loop: "{{ cells_row_9 }}"
+
+    - name: create 3x3 vertex matrix
+      ansible.builtin.include_tasks: tasks/edges/sees.yml
+      loop: "{{ sees }}"
