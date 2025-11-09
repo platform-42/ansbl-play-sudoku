@@ -6,10 +6,10 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     type: SEES
-    from_entity:
+    from:
       label: Cell
       entity_name: "C{{ item.from.row }}{{ item.from.column }}"
-    to_entity:
+    to:
       label: Cell
       entity_name: "C{{ item.to.row }}{{ item.to.column }}"
     state: PRESENT
