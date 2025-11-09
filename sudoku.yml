@@ -25,37 +25,37 @@
       ansible.builtin.include_tasks: tasks/vertices/cells.yml
       loop: "{{ cells_row_1 }}"
 
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_2 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_3 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_4 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_5 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_6 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_7 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_8 }}"
-
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_9 }}"
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_2 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_3 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_4 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_5 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_6 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_7 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_8 }}"
+#
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_9 }}"
 
     - name: create 3x3 vertex matrix
       ansible.builtin.include_tasks: tasks/edges/sees.yml
