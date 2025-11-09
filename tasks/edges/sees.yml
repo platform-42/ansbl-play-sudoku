@@ -13,4 +13,4 @@
       label: Cell
       entity_name: "C{{ item.to.row }}{{ item.to.column }}"
     state: PRESENT
-  loop: "{{ sudoku_sees }}"
+  register: sees
