@@ -1,0 +1,7 @@
+---
+- name: Ensure dependencies for platform42.neo4j are installed
+  ansible.builtin.pip:
+    name:
+      - neo4j>=5.0,<6.0
+      - regex
+    state: present

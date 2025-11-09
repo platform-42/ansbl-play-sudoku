@@ -1,0 +1,19 @@
+---
+- name: "create account:{{ item.name }}"
+  platform42.neo4j.vertex:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    label: Account
+    entity_name: "{{ item.id }}"
+    state: PRESENT
+    properties:
+      name: 
+        value: "{{ item.name }}"
+        type: str
+  register: account
+
+- name: print account vertex
+  ansible.builtin.debug:
+    var: account.vertex

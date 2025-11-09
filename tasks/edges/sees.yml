@@ -1,0 +1,30 @@
+---
+- name: "create transaction {{ item.amount }} TRANSACTION:{{ item.from }} - {{ item.to }}"
+  platform42.neo4j.edge:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    type: TRANSACTION
+    from:
+      label: Account
+      entity_name: "{{ item.from }}"
+    to:
+      label: Account
+      entity_name: "{{ item.to }}"
+    state: PRESENT
+    properties:
+      amount: 
+        value: "{{ item.amount }}"
+        type: float
+      timestamp: 
+        value: "{{ item.timestamp }}"
+        type: datetime
+    unique_key: timestamp
+  register: transaction
+
+- name: print TRANSACTION relationship stats
+  ansible.builtin.debug:
+    var: transaction.edge
+
+  
