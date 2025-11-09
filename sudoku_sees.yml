@@ -1,4 +1,4 @@
-sees:
+sudoku_sees:
 - from:
     row: 1
     column: 1

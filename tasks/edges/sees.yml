@@ -5,7 +5,7 @@
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
-    label: SEES
+    type: SEES
     from_entity:
       label: Cell
       entity_name: "C{{ item.from.row }}{{ item.from.column }}"
@@ -13,4 +13,5 @@
       label: Cell
       entity_name: "C{{ item.to.row }}{{ item.to.column }}"
     state: PRESENT
+    bi_directional: True
   register: sees
