@@ -21,9 +21,9 @@
 #    - name: cleanup graph database
 #      ansible.builtin.include_tasks: tasks/database/database.yml
 
-    - name: create 3x3 vertex matrix
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells_row_1 }}"
+#    - name: create 3x3 vertex matrix
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells_row_1 }}"
 
 #    - name: create 3x3 vertex matrix
 #      ansible.builtin.include_tasks: tasks/vertices/cells.yml

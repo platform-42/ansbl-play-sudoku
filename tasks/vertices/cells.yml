@@ -21,6 +21,3 @@
         element_type: int
   register: cell
 
-#- name: print cell vertex
-#  ansible.builtin.debug:
-#    var: cell.vertex
