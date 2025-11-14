@@ -11,15 +11,19 @@
     query: |
       MATCH (c:Cell {entity_name: $entity_name})
       SET c.value = $value, c.domain = [$value]
-      WITH c, $value AS pp
+      WITH c, $value AS value
       MATCH (c)-[:SEES]->(n:Cell)
       WHERE n.value = 0
-      SET n.domain = [x IN n.domain WHERE x <> pp]
+      SET n.domain = [x IN n.domain WHERE x <> value]
       RETURN c, n
     write_access: True
     parameters:
-      entity_name: "{{ item.entity_name }}"
-      value: "{{ item.color }}"
+      entity_name: 
+        value: "{{ item.entity_name }}"
+        type: str
+      value: 
+        value:  "{{ item.color }}"
+        type: int
   register: coloured_cell
 
 - name: print query 
