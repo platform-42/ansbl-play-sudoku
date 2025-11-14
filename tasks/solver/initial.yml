@@ -16,10 +16,10 @@
       WHERE n.value = 0
       SET n.domain = [x IN n.domain WHERE x <> value]
       RETURN c, n
-  write_access: True
-  parameters:
-    entity_name: "{{ item.entity_name }}"
-    value: "{{ item.color }}"
+    write_access: True
+    parameters:
+      entity_name: "{{ item.entity_name }}"
+      value: "{{ item.color }}"
   register: coloured_cell
 
 - name: print query 
