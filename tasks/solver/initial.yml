@@ -3,7 +3,7 @@
 # WITH caries variables over on a query boundary 
 #
 - name: "initial value for Cell:{{ item.entity_name }}"
-  platform42.neo4j.query_read:
+  platform42.neo4j.query:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
