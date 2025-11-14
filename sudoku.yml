@@ -5,7 +5,7 @@
     - vars/settings/local/settings.yml
     - vars/vertices/cells.yml
     - vars/edges/sees.yml
-    - vars/solver/cells.yml
+    - vars/solver/initial.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
