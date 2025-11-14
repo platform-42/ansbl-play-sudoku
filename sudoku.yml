@@ -22,6 +22,6 @@
 #      ansible.builtin.include_tasks: tasks/edges/sees.yml
 #      loop: "{{ sees }}"
 
-    - name: create 3x3 Sudoku relationships
+    - name: set initial values for solving
       ansible.builtin.include_tasks: tasks/solver/initial.yml
       loop: "{{ cells }}"
