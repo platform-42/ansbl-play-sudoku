@@ -11,10 +11,10 @@
     query: |
       MATCH (c:Cell {entity_name: $entity_name})
       SET c.value = $value, c.domain = [$value]
-      WITH c, $value AS value
+      WITH c, $value AS pp
       MATCH (c)-[:SEES]->(n:Cell)
       WHERE n.value = 0
-      SET n.domain = [x IN n.domain WHERE x <> value]
+      SET n.domain = [x IN n.domain WHERE x <> pp]
       RETURN c, n
     write_access: True
     parameters:
