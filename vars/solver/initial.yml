@@ -1,4 +1,4 @@
-cells:
+cells_initial:
   - { entity_name: "C11", color: 5 }
 #  - { entity_name: "C12", color: 3 }
 #  - { entity_name: "C15", color: 7 }

@@ -24,4 +24,4 @@
 
     - name: set initial values for solving
       ansible.builtin.include_tasks: tasks/solver/initial.yml
-      loop: "{{ cells }}"
+      loop: "{{ cells_initial }}"
