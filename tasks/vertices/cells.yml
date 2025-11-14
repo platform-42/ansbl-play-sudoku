@@ -19,5 +19,9 @@
         type: list
         value: "{{ item.domain }}"
         element_type: int
+      value:
+        type: int
+        value: 0
+        element_type: int
   register: cell
 
