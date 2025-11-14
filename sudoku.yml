@@ -5,6 +5,7 @@
     - vars/settings/local/settings.yml
     - vars/vertices/cells.yml
     - vars/edges/sees.yml
+    - vars/solver/cell.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
@@ -13,10 +14,14 @@
 #    - name: cleanup graph database
 #      ansible.builtin.include_tasks: tasks/database/database.yml
 
-    - name: create 3x3 Sudoku nodes
-      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-      loop: "{{ cells }}"
+#    - name: create 3x3 Sudoku nodes
+#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
+#      loop: "{{ cells }}"
+
+#    - name: create 3x3 Sudoku relationships
+#      ansible.builtin.include_tasks: tasks/edges/sees.yml
+#      loop: "{{ sees }}"
 
     - name: create 3x3 Sudoku relationships
-      ansible.builtin.include_tasks: tasks/edges/sees.yml
-      loop: "{{ sees }}"
+      ansible.builtin.include_tasks: tasks/solver/initial.yml
+      loop: "{{ cells }}"

@@ -1,0 +1,27 @@
+---
+#
+# WITH caries variables over on a query boundary 
+#
+- name: "initial value for Cell:{{ item.entity_name }}"
+  platform42.neo4j.query_read:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    cypher_query: |
+      MATCH (c:Cell {entity_name: $entity_name})
+      SET c.value = $value, c.domain = [$value]
+      WITH c, $value AS value
+      MATCH (c)-[:SEES]->(n:Cell)
+      WHERE n.value = 0
+      SET n.domain = [x IN n.domain WHERE x <> value]
+      RETURN c, n
+  write_access: True
+  parameters:
+    entity_name: "{{ item.entity_name }}"
+    value: "{{ item.color }}"
+  register: coloured_cell
+
+- name: print query 
+  ansible.builtin.debug:
+    var: coloured_cell
