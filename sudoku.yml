@@ -10,8 +10,8 @@
     - name: install platform42.neo4j dependencies
       ansible.builtin.include_tasks: tasks/dependencies/neo4j.yml
 
-    - name: cleanup graph database
-      ansible.builtin.include_tasks: tasks/database/database.yml
+#    - name: cleanup graph database
+#      ansible.builtin.include_tasks: tasks/database/database.yml
 
     - name: create 3x3 Sudoku nodes
       ansible.builtin.include_tasks: tasks/vertices/cells.yml
