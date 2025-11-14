@@ -8,7 +8,7 @@
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
-    cypher_query: |
+    query: |
       MATCH (c:Cell {entity_name: $entity_name})
       SET c.value = $value, c.domain = [$value]
       WITH c, $value AS value
