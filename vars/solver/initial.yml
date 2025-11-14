@@ -1,39 +1,40 @@
 cells:
   - { entity_name: "C11", color: 5 }
-  - { entity_name: "C12", color: 3 }
-  - { entity_name: "C15", color: 7 }
-
-  - { entity_name: "C21", color: 6 }
-  - { entity_name: "C24", color: 1 }
-  - { entity_name: "C25", color: 9 }
-  - { entity_name: "C26", color: 5 }
-
-  - { entity_name: "C32", color: 9 }
-  - { entity_name: "C33", color: 8 }
-  - { entity_name: "C38", color: 6 }
-
-  - { entity_name: "C41", color: 8 }
-  - { entity_name: "C45", color: 6 }
-  - { entity_name: "C49", color: 3 }
-
-  - { entity_name: "C51", color: 4 }
-  - { entity_name: "C54", color: 8 }
-  - { entity_name: "C56", color: 3 }
-  - { entity_name: "C59", color: 1 }
-
-  - { entity_name: "C61", color: 7 }
-  - { entity_name: "C65", color: 2 }
-  - { entity_name: "C69", color: 6 }
-
-  - { entity_name: "C72", color: 6 }
-  - { entity_name: "C77", color: 2 }
-  - { entity_name: "C78", color: 8 }
-
-  - { entity_name: "C84", color: 4 }
-  - { entity_name: "C85", color: 1 }
-  - { entity_name: "C86", color: 9 }
-  - { entity_name: "C89", color: 5 }
-
-  - { entity_name: "C95", color: 8 }
-  - { entity_name: "C98", color: 7 }
-  - { entity_name: "C99", color: 9 }
+#  - { entity_name: "C12", color: 3 }
+#  - { entity_name: "C15", color: 7 }
+#
+#  - { entity_name: "C21", color: 6 }
+#  - { entity_name: "C24", color: 1 }
+#  - { entity_name: "C25", color: 9 }
+#  - { entity_name: "C26", color: 5 }
+#
+#  - { entity_name: "C32", color: 9 }
+#  - { entity_name: "C33", color: 8 }
+#  - { entity_name: "C38", color: 6 }
+#
+#  - { entity_name: "C41", color: 8 }
+#  - { entity_name: "C45", color: 6 }
+#  - { entity_name: "C49", color: 3 }
+#
+#  - { entity_name: "C51", color: 4 }
+#  - { entity_name: "C54", color: 8 }
+#  - { entity_name: "C56", color: 3 }
+#  - { entity_name: "C59", color: 1 }
+#
+#  - { entity_name: "C61", color: 7 }
+#  - { entity_name: "C65", color: 2 }
+#  - { entity_name: "C69", color: 6 }
+#
+#  - { entity_name: "C72", color: 6 }
+#  - { entity_name: "C77", color: 2 }
+#  - { entity_name: "C78", color: 8 }
+#
+#  - { entity_name: "C84", color: 4 }
+#  - { entity_name: "C85", color: 1 }
+#  - { entity_name: "C86", color: 9 }
+#  - { entity_name: "C89", color: 5 }
+#
+#  - { entity_name: "C95", color: 8 }
+#  - { entity_name: "C98", color: 7 }
+#  - { entity_name: "C99", color: 9 }
+#
