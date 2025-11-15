@@ -62,10 +62,11 @@
       AS sudoku
   register: sudoku
 
-- name:
+- name: extract board from cypher response
   ansible.builtin.set_fact:
     sudoku_board: "{{ sudoku.query.cypher_response[0] }}"
 
-- name: 
+- name: print board
   ansible.builtin.debug:
-    msg: "{{ sudoku_board.sudoku | indent(2) }}"
+    var: "{{ sudoku_board.sudoku | indent(2) }}"
+
