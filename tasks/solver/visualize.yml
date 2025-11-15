@@ -64,4 +64,4 @@
 
 - name: 
   ansible.builtin.debug:
-    msg: "{{ sudoku.query.cypher_response[0] | indent }}"
+    msg: "{{ sudoku.query.cypher_response }}"
