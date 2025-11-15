@@ -15,7 +15,7 @@
 
 - name: indicate new forced moves
   ansible.builtin.set_fact:
-    has_forced_moves: "{{ forced.query.cypher_response | length == 0 }}"
+    has_forced_moves: "{{ forced.query.cypher_response | length > 0 }}"
 
 - name: calculate forced moves
   ansible.builtin.include_tasks: tasks/solver/initial.yml
