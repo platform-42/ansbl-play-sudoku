@@ -60,7 +60,7 @@
       v[75] + ' ' + v[76] + ' ' + v[77] + '   ' +
       v[78] + ' ' + v[79] + ' ' + v[80]
       AS sudoku
-  register: sodoku
+  register: sudoku
 
 - name: 
   ansible.builtin.debug:
