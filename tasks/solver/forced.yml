@@ -17,6 +17,10 @@
   ansible.builtin.set_fact:
     has_forced_moves: "{{ forced.query.cypher_response | length > 0 }}"
 
+- name: print end condition
+  ansible.builtin.debug:
+     var: has_forced_moves
+
 - name: calculate forced moves
   ansible.builtin.include_tasks: tasks/solver/initial.yml
   loop: "{{ forced.query.cypher_response }}"

@@ -26,6 +26,3 @@
         type: int
   register: colored_cell
 
-- name: print query 
-  ansible.builtin.debug:
-    var: colored_cell
