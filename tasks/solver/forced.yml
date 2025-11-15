@@ -15,4 +15,4 @@
 
 - name: set initial values forced moves
   ansible.builtin.include_tasks: tasks/solver/initial.yml
-  loop: "{{ forced.cypher_response }}"
+  loop: "{{ forced.query.cypher_response }}"
