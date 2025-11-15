@@ -8,15 +8,12 @@
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
-    query:
-    write_access: True
-    parameters:
-      entity_name: 
-        value: "{{ item.entity_name }}"
-        type: str
-      color: 
-        value:  "{{ item.color }}"
-        type: int
+    query: |
+      MATCH (c:Cell)
+      WHERE c.value = 0 AND size(c.domain) = 1
+      RETURN 
+        c.entity_name AS entity_name,
+        c.domain[0] AS forced_value
   register: colored_cell
 
 - name: print query 
