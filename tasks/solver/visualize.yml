@@ -62,6 +62,10 @@
       AS sudoku
   register: sudoku
 
+- name:
+  ansible.builtin.set_fact:
+    sudoku_board: "{{ sudoku.query.cypher_response[0] }}"
+
 - name: 
   ansible.builtin.debug:
-    msg: "{{ sudoku.query.cypher_response }}"
+    var: sudoku_board
