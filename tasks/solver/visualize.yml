@@ -72,5 +72,6 @@
 
 - name: print board
   ansible.builtin.debug:
-    var: sudoku_board_formatted
+    msg: | 
+      "{{ sudoku_board_formatted }}"
 
