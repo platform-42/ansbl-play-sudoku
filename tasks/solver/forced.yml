@@ -1,5 +1,5 @@
 ---
-- name: get forced moves
+- name: check forced moves
   platform42.neo4j.query:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
@@ -13,6 +13,10 @@
         c.domain[0] AS color
   register: forced
 
-- name: set initial values forced moves
+- name: indicate new forced moves
+  ansible.builtin.set_fact:
+    has_forced_moves: "{{ forced.query.cypher_response | length == 0 }}"
+
+- name: calculate forced moves
   ansible.builtin.include_tasks: tasks/solver/initial.yml
   loop: "{{ forced.query.cypher_response }}"
