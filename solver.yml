@@ -21,8 +21,15 @@
     # step 2: forced moves
     - name: repeat forced solver
       ansible.builtin.include_tasks: tasks/solver/forced.yml
+
+    - name: Solve Sudoku until no more forced values exist
+      include_tasks: solve_forced.yml
       loop: [1]
-      until: not has_forced_moves
+      loop_control:
+        loop_var: dummy
+      until: not forced_values
+      retries: 200
+      delay: 0
 
     # print board
     - name: print sudoku board
