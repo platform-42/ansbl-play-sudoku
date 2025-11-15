@@ -19,10 +19,12 @@
         has_forced_moves: True
 
     # step 2: forced moves
-    - name: check for forced moves
+    - name: repeat forced solver
       ansible.builtin.include_tasks: tasks/solver/forced.yml
-      when:
-        - has_forced_moves
+      loop: [1]
+      until: not has_forced_moves
+      retries: 50
+      delay: 0
 
     # print board
     - name: print sudoku board
