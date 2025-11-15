@@ -12,9 +12,9 @@
     # 3 step process
 
     # step 1: set initial values
-    - name: set initial values for solving
-      ansible.builtin.include_tasks: tasks/solver/initial.yml
-      loop: "{{ cells_initial }}"
+#    - name: set initial values for solving
+#      ansible.builtin.include_tasks: tasks/solver/initial.yml
+#      loop: "{{ cells_initial }}"
     
     - name: "C11"
       ansible.builtin.include_tasks: tasks/solver/visualize.yml
