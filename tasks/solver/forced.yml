@@ -1,8 +1,5 @@
 ---
-#
-# WITH caries variables over on a query boundary 
-#
-- name: "initial value for Cell:{{ item.entity_name }}"
+- name: get forced moves
   platform42.neo4j.query:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
@@ -13,9 +10,9 @@
       WHERE c.color = 0 AND size(c.domain) = 1
       RETURN 
         c.entity_name AS entity_name,
-        c.domain[0] AS forced_value
-  register: colored_cell
+        c.domain[0] AS color
+  register: forced
 
-- name: print query 
-  ansible.builtin.debug:
-    var: colored_cell
+- name: set initial values forced moves
+  ansible.builtin.include_tasks: tasks/solver/initial.yml
+  loop: "{{ forced.cypher_response }}"
