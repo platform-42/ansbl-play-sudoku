@@ -14,18 +14,9 @@
 #      ansible.builtin.include_tasks: tasks/solver/initial.yml
 #      loop: "{{ cells_initial }}"
     
-    - name: initialize for forced moves
-      ansible.builtin.set_fact:
-        has_forced_moves: True
-
     # step 2: forced moves
-  #  - name: repeat forced solver
-  #    ansible.builtin.include_tasks: tasks/solver/forced.yml
-
-    - name: Solve Sudoku until no more forced values exist
-      block:
-        - ansible.builtin.include_tasks: tasks/solver/forced.yml
-      until: not forced_values
+    - name: repeat forced solver
+      ansible.builtin.include_tasks: tasks/solver/forced.yml
 
     # print board
     - name: print sudoku board

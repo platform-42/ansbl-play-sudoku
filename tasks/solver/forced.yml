@@ -20,3 +20,9 @@
 - name: calculate forced moves
   ansible.builtin.include_tasks: tasks/solver/initial.yml
   loop: "{{ forced.query.cypher_response }}"
+
+- name: call recursively
+  ansible.builtin.include_tasks: tasks/solver/forced.yml
+  when:
+    - has_forced_moves
+
