@@ -24,7 +24,6 @@
       loop: [1]
       until: not has_forced_moves
       retries: 50
-      delay: 0
 
     # print board
     - name: print sudoku board
