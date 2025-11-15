@@ -19,7 +19,7 @@
         type: list
         value: "{{ item.domain }}"
         element_type: int
-      value:
+      color:
         type: int
         value: 0
         element_type: int
