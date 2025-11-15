@@ -64,4 +64,4 @@
 
 - name: 
   ansible.builtin.debug:
-    var: sudoku.query.cypher_response.sudoku
+    var: sudoku.query.cypher_response
