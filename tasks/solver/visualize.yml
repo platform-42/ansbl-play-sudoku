@@ -66,7 +66,11 @@
   ansible.builtin.set_fact:
     sudoku_board: "{{ sudoku.query.cypher_response[0] }}"
 
+- name: extract board from cypher response
+  ansible.builtin.set_fact:
+    sudoku_board_formatted: "{{ sudoku_board.sudoku | indent(2) }}"
+
 - name: print board
   ansible.builtin.debug:
-    var: "{{ sudoku_board.sudoku | indent(2) }}"
+    var: sudoku_board_formatted
 
