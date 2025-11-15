@@ -26,3 +26,6 @@
         type: int
   register: colored_cell
 
+- name: print colored_cell
+  ansible.builtin.debug:
+    var: colored_cell.query.cypher_response
