@@ -10,7 +10,7 @@
     password: "{{ NEO4J_PASSWORD }}"
     query: |
       MATCH (c:Cell)
-      WHERE c.value = 0 AND size(c.domain) = 1
+      WHERE c.color = 0 AND size(c.domain) = 1
       RETURN 
         c.entity_name AS entity_name,
         c.domain[0] AS forced_value
