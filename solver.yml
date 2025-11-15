@@ -16,4 +16,5 @@
       ansible.builtin.include_tasks: tasks/solver/initial.yml
       loop: "{{ cells_initial }}"
     
-    # step: 
+    - name: "C11"
+      ansible.builtin.include_tasks: tasks/solver/visualize.yml
