@@ -68,4 +68,4 @@
 
 - name: 
   ansible.builtin.debug:
-    var: sudoku_board
+    msg: "{{ sudoku_board.sudoku | indent(2) }}"
