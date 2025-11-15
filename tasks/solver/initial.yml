@@ -29,3 +29,7 @@
 - name: print query 
   ansible.builtin.debug:
     var: colored_cell
+
+- name: "C11"
+  ansible.builtin.include_tasks: tasks/solver/visualize.yml
+  
