@@ -64,11 +64,7 @@
 
 - name: extract board from cypher response
   ansible.builtin.set_fact:
-    sudoku_board: "{{ sudoku.query.cypher_response[0] }}"
-
-- name: extract board from cypher response
-  ansible.builtin.set_fact:
-    sudoku_board_formatted: "{{ sudoku_board.sudoku | indent(2) }}"
+    sudoku_board: "{{ sudoku.query.cypher_response[0].sudoku }}"
 
 - name: print board
   ansible.builtin.debug:
