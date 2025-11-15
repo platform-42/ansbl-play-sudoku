@@ -23,7 +23,6 @@
       ansible.builtin.include_tasks: tasks/solver/forced.yml
       loop: [1]
       until: not has_forced_moves
-      retries: 50
 
     # print board
     - name: print sudoku board
