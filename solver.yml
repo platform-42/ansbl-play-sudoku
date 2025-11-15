@@ -3,7 +3,7 @@
   gather_facts: false
   vars_files:
     - vars/settings/local/settings.yml
-    - vars/solver/initial.yml
+    - vars/solver/game-2.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
@@ -15,7 +15,7 @@
       loop: "{{ cells_initial }}"
     
     # step 2: forced moves
-    - name: repeat forced solver
+    - name: forced solver
       ansible.builtin.include_tasks: tasks/solver/forced.yml
 
     # print board
