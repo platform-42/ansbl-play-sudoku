@@ -3,7 +3,7 @@
   gather_facts: false
   vars_files:
     - vars/settings/local/settings.yml
-    - vars/solver/game-2.yml
+    - vars/solver/game-1.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
