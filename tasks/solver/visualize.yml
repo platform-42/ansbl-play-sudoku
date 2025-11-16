@@ -20,15 +20,13 @@
   ansible.builtin.set_fact:
     colors: "{{ sudoku.query.cypher_response }}"
 
-- name: fuck board
+- name: Print Sudoku board 9x9
   ansible.builtin.debug:
-    msg: >-
+    msg: |
       {% set colors = colors %}
-      {% set rows = [] %}
-      {% for i in range(0, 81, 9) %}
-      {%   set _ = rows.append(colors[i:i+9] | join(' ')) %}
+      {% for i in range(0, colors|length, 9) %}
+      {{ colors[i:i+9] | join(' ') }}
       {% endfor %}
-      {{ rows | join('\n') }}
 
      
 
