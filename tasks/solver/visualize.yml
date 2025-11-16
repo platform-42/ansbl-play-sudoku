@@ -22,11 +22,8 @@
 
 - name: Print Sudoku board 9x9
   ansible.builtin.debug:
-    msg: |
-      {% set colors = colors %}
-      {% for i in range(0, colors|length, 9) %}
-      {{ colors[i:i+9] | join(' ') }}
-      {% endfor %}
+    msg: "{{ colors | batch(9) | map('join',' ') | join('\n') }}"
+
 
      
 
