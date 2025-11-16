@@ -24,9 +24,11 @@
   ansible.builtin.debug:
     msg: |
       {% set colors = colors %}
-      {% for i in range(0, 81, 9) %}
-      {{ colors[i:i+9] | join(' ') }}
+      {% set board_lines = [] %}
+      {% for i in range(0, colors | length, 9) %}
+      {%   set _ = board_lines.append(colors[i:i+9] | join(' ')) %}
       {% endfor %}
+      {{ board_lines | join('\n') }}
 
      
 
