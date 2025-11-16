@@ -16,9 +16,17 @@
         collect(c.color) AS colors;
   register: sudoku
 
-- name: fuck
+- name: fuck colors
+  ansible.builtin.set_fact:
+    colors: "{{ sudoku.query.cypher_result }}"
+
+- name: fuck board
   ansible.builtin.debug:
-    var: sudoku.query.cypher_response
+    msg: |
+      {% set colors = colors %}
+      {% for i in range(0, 81, 9) %}
+      {{ colors[i:i+9] | join(' ') }}
+      {% endfor %}
 
      
 
