@@ -16,22 +16,29 @@
         collect(c.color) AS colors;
   register: sudoku
 
-- name: extract board from cypher response
-  ansible.builtin.set_fact:
-    colors: "{{ sudoku.query.cypher_response }}"
-
-- name: print board
+- name: Print board nicely
   ansible.builtin.debug:
     msg: |
       {% set colors = colors %}
       {% set rows = [] %}
-      {% for i in range(0, colors|length, 9) %}
+      {% for i in range(0, 81, 9) %}
       {%   set row = colors[i:i+9] %}
       {%   set formatted_row = row[0:3] | join(' ') + ' | ' +
                               row[3:6] | join(' ') + ' | ' +
                               row[6:9] | join(' ') %}
       {%   set _ = rows.append(formatted_row) %}
       {% endfor %}
-      {{ rows | join('\n') }}
+
+      {% set separator = '------+-------+------' %}
+      {% set final_rows = [] %}
+      {% for r in range(9) %}
+      {%   set _ = final_rows.append(rows[r]) %}
+      {%   if r in [2,5] %} 
+      {%     set _ = final_rows.append(separator) %}
+      {%   endif %}
+      {% endfor %}
+
+      {{ final_rows | join('\n') }}
+
      
 
