@@ -18,7 +18,7 @@
 
 - name: fuck colors
   ansible.builtin.set_fact:
-    colors: "{{ sudoku.query.cypher_result }}"
+    colors: "{{ sudoku.query.cypher_response }}"
 
 - name: fuck board
   ansible.builtin.debug:
