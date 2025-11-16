@@ -23,7 +23,7 @@
 - name: print board
   ansible.builtin.debug:
     msg: |
-      {% set colors = sudoku.query.cypher_response.colors %}
+      {% set colors = colors %}
       {% set rows = [] %}
       {% for i in range(0, colors|length, 9) %}
       {%   set row = colors[i:i+9] %}
