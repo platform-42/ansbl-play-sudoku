@@ -6,7 +6,7 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     edge_file: ./vars/edges/bulk/sees_bulk.yml
-    edge_anchor: SEES
+    edge_anchor: sees
   register: sees_bulk
 
 - name: print relationships bulk stats 
