@@ -45,7 +45,7 @@ for vertex_list in vertex_lists:
         new_domain = {}
         new_domain["value"] = domain
         new_domain["type"] = "list"
-        new_domain["entity_type"] = "int"
+        new_domain["element_type"] = "int"
 
         new_color = {}
         new_color["value"] = 0
