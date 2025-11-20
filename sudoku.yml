@@ -14,8 +14,8 @@
       ansible.builtin.include_tasks: tasks/database/database.yml
 
     - name: create 3x3 Sudoku nodes
-      ansible.builtin.include_tasks: tasks/vertices/bulk/cells.yml
+      ansible.builtin.include_tasks: tasks/vertices/bulk/cells_bulk.yml
 
     - name: create Sudoku relationships
-      ansible.builtin.include_tasks: tasks/edges/bulk/sees.yml
+      ansible.builtin.include_tasks: tasks/edges/bulk/sees_bulk.yml
 
