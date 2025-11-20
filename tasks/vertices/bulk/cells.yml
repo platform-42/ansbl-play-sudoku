@@ -7,5 +7,10 @@
     password: "{{ NEO4J_PASSWORD }}"
     vertex_file: ./vars/vertices/bulk/cells_bulk.yml
     vertex_anchor: cells
-  register: cell
+  register: cells_bulk 
+
+- name: print stats cells bulk 
+  ansible.builtin.debug:
+    var: cells_bulk
+
 
