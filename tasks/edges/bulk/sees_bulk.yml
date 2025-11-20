@@ -1,13 +1,13 @@
 ---
 - name: create SEES relationships bulk
-  platform42.neo4j.edge:
+  platform42.neo4j.edge_bulk:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     edge_file: ./vars/edges/bulk/sees_bulk.yml
     edge_anchor: SEES
-  register: sees_bulk 
+  register: sees_bulk
 
 - name: print relationships bulk stats 
   ansible.builtin.debug:
