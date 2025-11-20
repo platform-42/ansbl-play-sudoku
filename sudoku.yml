@@ -13,13 +13,9 @@
     - name: cleanup graph database
       ansible.builtin.include_tasks: tasks/database/database.yml
 
-#    - name: create 3x3 Sudoku nodes
-#      ansible.builtin.include_tasks: tasks/vertices/cells.yml
-#      loop: "{{ cells }}"
-
     - name: create 3x3 Sudoku nodes
       ansible.builtin.include_tasks: tasks/vertices/bulk/cells.yml
 
-#    - name: create 3x3 Sudoku relationships
-#      ansible.builtin.include_tasks: tasks/edges/sees.yml
-#      loop: "{{ sees }}"
+    - name: create Sudoku relationships
+      ansible.builtin.include_tasks: tasks/edges/bulk/sees.yml
+
