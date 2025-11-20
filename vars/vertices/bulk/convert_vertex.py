@@ -47,10 +47,15 @@ for vertex_list in vertex_lists:
         new_domain["type"] = "list"
         new_domain["entity_type"] = "int"
 
+        new_color = {}
+        new_color["value"] = 0
+        new_color["type"] = "int"
+
         new_properties = {}
         new_properties["row"] = new_row
         new_properties["column"] = new_column
         new_properties["domain"] = new_domain
+        new_properties["color"] = new_color
 
         new_vertex = {}
         new_vertex["label"] = label
