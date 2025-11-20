@@ -1,0 +1,11 @@
+---
+- name: create all sudoku cells
+  platform42.neo4j.vertex:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    vertex_file: ./vars/vertices/bulk/cells_bulk.yml
+    vertex_anchor: cells
+  register: cell
+
