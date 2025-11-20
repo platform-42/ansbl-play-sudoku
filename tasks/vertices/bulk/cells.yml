@@ -1,6 +1,6 @@
 ---
 - name: create all sudoku cells
-  platform42.neo4j.vertex:
+  platform42.neo4j.vertex_bulk:
     neo4j_uri: "{{ NEO4J_URI }}"
     database: "{{ NEO4J_DATABASE }}"
     username: "{{ NEO4J_USERNAME }}"
