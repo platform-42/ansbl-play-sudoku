@@ -1,0 +1,253 @@
+cells:
+# cells_row_1:
+  - row: 1
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 1
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_2:
+  - row: 2
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 2
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_3:
+  - row: 3
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 3
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_4:
+  - row: 4
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 4
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_5:
+  - row: 5
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 5
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_6:
+  - row: 6
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 6
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_7:
+  - row: 7
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 7
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+# cells_row_8:
+  - row: 8
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 8
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
+  # cells_row_9:
+  - row: 9
+    column: 1
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 2
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 3
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 4
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 5
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 6
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 7
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 8
+    domain: [1,2,3,4,5,6,7,8,9]
+  - row: 9
+    column: 9
+    domain: [1,2,3,4,5,6,7,8,9]
