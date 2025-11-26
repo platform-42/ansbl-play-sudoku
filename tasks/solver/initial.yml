@@ -26,7 +26,7 @@
         type: int
   register: colored_cell
 
-- name: print colored_cell
-  ansible.builtin.debug:
-    var: item.c.domain
-  loop: "{{ colored_cell.query.cypher_response }}"
+#- name: print colored_cell
+#  ansible.builtin.debug:
+#    msg: "{{ item.n.domain }}"
+#  loop: "{{ colored_cell.query.cypher_response }}"
