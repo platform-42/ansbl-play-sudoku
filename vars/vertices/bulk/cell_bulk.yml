@@ -1,3 +1,4 @@
+cells:
 - label: Cell
   entity_name: C11
   properties:
