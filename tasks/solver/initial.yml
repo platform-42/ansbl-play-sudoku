@@ -28,5 +28,5 @@
 
 - name: print colored_cell
   ansible.builtin.debug:
-    msg: "{{ item.n.domain }}"
+    var: item.c.domain
   loop: "{{ colored_cell.query.cypher_response }}"
