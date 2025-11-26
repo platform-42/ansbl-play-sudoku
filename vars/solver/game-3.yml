@@ -1,0 +1,36 @@
+cells_initial:
+# matrix 1
+  - { entity_name: "C12", color: 3 }
+  - { entity_name: "C13", color: 5 }
+  - { entity_name: "C14", color: 1 }
+  - { entity_name: "C16", color: 2 }
+  - { entity_name: "C17", color: 9 }
+  - { entity_name: "C18", color: 8 }
+  - { entity_name: "C21", color: 7 }
+  - { entity_name: "C25", color: 4 }
+  - { entity_name: "C29", color: 6 }
+  - { entity_name: "C33", color: 1 }
+  - { entity_name: "C37", color: 5 }
+# matrix 2
+  - { entity_name: "C41", color: 6 }
+  - { entity_name: "C44", color: 4 }
+  - { entity_name: "C46", color: 5 }
+  - { entity_name: "C49", color: 1 }
+  - { entity_name: "C52", color: 4 }
+  - { entity_name: "C58", color: 5 }
+  - { entity_name: "C61", color: 5 }
+  - { entity_name: "C64", color: 2 }
+  - { entity_name: "C66", color: 8 }
+  - { entity_name: "C69", color: 3 }
+# matrix 3
+  - { entity_name: "C73", color: 7 }
+  - { entity_name: "C77", color: 6 }
+  - { entity_name: "C81", color: 3 }
+  - { entity_name: "C85", color: 9 }
+  - { entity_name: "C89", color: 2 }
+  - { entity_name: "C92", color: 2 }
+  - { entity_name: "C93", color: 4 }
+  - { entity_name: "C94", color: 6 }
+  - { entity_name: "C96", color: 7 }
+  - { entity_name: "C97", color: 8 }
+  - { entity_name: "C98", color: 3 }
