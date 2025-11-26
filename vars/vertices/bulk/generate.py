@@ -33,6 +33,15 @@ for row in range(1, 10):
                     "value": [],
                     "type": "list",
                     "element_type": "int"
+                },
+                "tried_colors" : {
+                    "value": [],
+                    "type": "list",
+                    "element_type": "int"
+                },
+                "assigned_by_guess" : {
+                    "value": False,
+                    "type": "bool"
                 }
             }
         }
