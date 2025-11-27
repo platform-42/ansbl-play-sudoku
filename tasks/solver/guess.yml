@@ -20,6 +20,7 @@
         c.guess_level = $depth
       RETURN
         c;
+    write_access: True
     parameters:
       depth:
         type: int
