@@ -9,7 +9,7 @@
       MATCH (c:Cell)
       WHERE c.color = 0
       RETURN c, size(c.domain) AS domain_size
-      ORDER BY domain_size ASC, degree DESC
+      ORDER BY domain_size ASC
       LIMIT 1
   register: guessed
 
