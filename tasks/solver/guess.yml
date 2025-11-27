@@ -7,15 +7,19 @@
     password: "{{ NEO4J_PASSWORD }}"
     query: |
       MATCH (c:Cell)
-      WHERE c.color = 0
-      RETURN c, size(c.domain) AS domain_size
-      ORDER BY domain_size ASC
+      WHERE 
+        c.color = 0
+      ORDER BY 
+        domain_size ASC
       LIMIT 1
-      SET c.domain_backup = c.domain,
-      c.color_backup = c.color,
-      c.color = c.domain[0],
-      c.assigned_by_guess = true,
-      c.guess_level = $depth
+      SET 
+        c.domain_backup = c.domain,
+        c.color_backup = c.color,
+        c.color = c.domain[0],
+        c.assigned_by_guess = true,
+        c.guess_level = $depth
+      RETURN
+        c;
     parameters:
       depth:
         type: int
