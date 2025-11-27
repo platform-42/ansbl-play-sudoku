@@ -1,3 +1,4 @@
+cells:
 - label: Cell
   entity_name: C11
   properties:
@@ -39,7 +40,7 @@
       type: bool
     guess_level:
       value: 0
-      type: &id001 !!python/name:builtins.int ''
+      type: int
 - label: Cell
   entity_name: C12
   properties:
@@ -81,7 +82,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C13
   properties:
@@ -123,7 +124,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C14
   properties:
@@ -165,7 +166,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C15
   properties:
@@ -207,7 +208,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C16
   properties:
@@ -249,7 +250,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C17
   properties:
@@ -291,7 +292,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C18
   properties:
@@ -333,7 +334,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C19
   properties:
@@ -375,7 +376,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C21
   properties:
@@ -417,7 +418,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C22
   properties:
@@ -459,7 +460,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C23
   properties:
@@ -501,7 +502,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C24
   properties:
@@ -543,7 +544,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C25
   properties:
@@ -585,7 +586,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C26
   properties:
@@ -627,7 +628,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C27
   properties:
@@ -669,7 +670,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C28
   properties:
@@ -711,7 +712,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C29
   properties:
@@ -753,7 +754,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C31
   properties:
@@ -795,7 +796,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C32
   properties:
@@ -837,7 +838,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C33
   properties:
@@ -879,7 +880,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C34
   properties:
@@ -921,7 +922,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C35
   properties:
@@ -963,7 +964,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C36
   properties:
@@ -1005,7 +1006,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C37
   properties:
@@ -1047,7 +1048,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C38
   properties:
@@ -1089,7 +1090,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C39
   properties:
@@ -1131,7 +1132,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C41
   properties:
@@ -1173,7 +1174,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C42
   properties:
@@ -1215,7 +1216,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C43
   properties:
@@ -1257,7 +1258,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C44
   properties:
@@ -1299,7 +1300,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C45
   properties:
@@ -1341,7 +1342,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C46
   properties:
@@ -1383,7 +1384,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C47
   properties:
@@ -1425,7 +1426,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C48
   properties:
@@ -1467,7 +1468,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C49
   properties:
@@ -1509,7 +1510,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C51
   properties:
@@ -1551,7 +1552,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C52
   properties:
@@ -1593,7 +1594,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C53
   properties:
@@ -1635,7 +1636,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C54
   properties:
@@ -1677,7 +1678,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C55
   properties:
@@ -1719,7 +1720,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C56
   properties:
@@ -1761,7 +1762,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C57
   properties:
@@ -1803,7 +1804,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C58
   properties:
@@ -1845,7 +1846,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C59
   properties:
@@ -1887,7 +1888,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C61
   properties:
@@ -1929,7 +1930,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C62
   properties:
@@ -1971,7 +1972,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C63
   properties:
@@ -2013,7 +2014,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C64
   properties:
@@ -2055,7 +2056,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C65
   properties:
@@ -2097,7 +2098,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C66
   properties:
@@ -2139,7 +2140,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C67
   properties:
@@ -2181,7 +2182,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C68
   properties:
@@ -2223,7 +2224,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C69
   properties:
@@ -2265,7 +2266,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C71
   properties:
@@ -2307,7 +2308,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C72
   properties:
@@ -2349,7 +2350,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C73
   properties:
@@ -2391,7 +2392,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C74
   properties:
@@ -2433,7 +2434,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C75
   properties:
@@ -2475,7 +2476,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C76
   properties:
@@ -2517,7 +2518,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C77
   properties:
@@ -2559,7 +2560,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C78
   properties:
@@ -2601,7 +2602,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C79
   properties:
@@ -2643,7 +2644,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C81
   properties:
@@ -2685,7 +2686,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C82
   properties:
@@ -2727,7 +2728,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C83
   properties:
@@ -2769,7 +2770,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C84
   properties:
@@ -2811,7 +2812,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C85
   properties:
@@ -2853,7 +2854,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C86
   properties:
@@ -2895,7 +2896,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C87
   properties:
@@ -2937,7 +2938,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C88
   properties:
@@ -2979,7 +2980,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C89
   properties:
@@ -3021,7 +3022,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C91
   properties:
@@ -3063,7 +3064,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C92
   properties:
@@ -3105,7 +3106,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C93
   properties:
@@ -3147,7 +3148,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C94
   properties:
@@ -3189,7 +3190,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C95
   properties:
@@ -3231,7 +3232,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C96
   properties:
@@ -3273,7 +3274,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C97
   properties:
@@ -3315,7 +3316,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C98
   properties:
@@ -3357,7 +3358,7 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 - label: Cell
   entity_name: C99
   properties:
@@ -3399,5 +3400,5 @@
       type: bool
     guess_level:
       value: 0
-      type: *id001
+      type: int
 
