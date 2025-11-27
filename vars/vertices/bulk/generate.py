@@ -45,7 +45,7 @@ for row in range(1, 10):
                 },
                 "guess_level" : {
                     "value": 0,
-                    "type": int
+                    "type": "int"
                 }
             }
         }
