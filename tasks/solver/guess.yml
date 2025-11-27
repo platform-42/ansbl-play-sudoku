@@ -11,7 +11,17 @@
       RETURN c, size(c.domain) AS domain_size
       ORDER BY domain_size ASC
       LIMIT 1
+      SET c.domain_backup = c.domain,
+      c.value_backup = c.value,
+      c.value = c.domain[0],
+      c.assigned_by_guess = true,
+      c.guess_level = $depth
+    parameters:
+      depth:
+        type: int
+        value: 0
   register: guessed
+
 
 - name:
   ansible.builtin.debug:
