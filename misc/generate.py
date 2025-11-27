@@ -42,6 +42,10 @@ for row in range(1, 10):
                 "assigned_by_guess" : {
                     "value": False,
                     "type": "bool"
+                },
+                "guess_level" : {
+                    "value": 0,
+                    "type": int
                 }
             }
         }
