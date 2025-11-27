@@ -10,7 +10,7 @@
       WHERE 
         c.color = 0
       ORDER BY 
-        domain_size ASC
+        size(c.domain) ASC
       LIMIT 1
       SET 
         c.domain_backup = c.domain,
