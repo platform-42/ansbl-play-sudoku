@@ -1,0 +1,15 @@
+- name: Sudoku
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - vars/settings/local/settings.yml
+    - vars/solver/game-3.yml
+
+  tasks:
+    - name: install platform42.neo4j dependencies
+      ansible.builtin.include_tasks: tasks/dependencies/neo4j.yml
+
+    # step 1: calculate best guess
+    - name: calculate unforced moves
+      ansible.builtin.include_tasks: tasks/solver/guess.yml
+

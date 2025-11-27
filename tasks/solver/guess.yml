@@ -6,4 +6,14 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     query: |
+      MATCH (c:Cell)
+      WHERE c.color = 0
+      RETURN c, size(c.domain) AS domain_size
+      ORDER BY domain_size ASC, degree DESC
+      LIMIT 1
+  register: guessed
+
+- name:
+  ansible.builtin.debug:
+    var: guessed
     
