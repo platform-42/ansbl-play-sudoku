@@ -17,9 +17,9 @@
       loop: "{{ cells_initial }}"
     
     # step 2: forced moves
-#    - name: forced solver
-#      ansible.builtin.include_tasks: tasks/solver/forced.yml
+    - name: forced solver
+      ansible.builtin.include_tasks: tasks/solver/forced.yml
 
     # print board
-#    - name: print sudoku board
-#      ansible.builtin.include_tasks: tasks/solver/visualize.yml
+    - name: print sudoku board
+      ansible.builtin.include_tasks: tasks/solver/visualize.yml
