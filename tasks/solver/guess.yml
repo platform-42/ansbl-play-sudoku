@@ -18,6 +18,7 @@
         c.color = c.domain[0],
         c.assigned_by_guess = true,
         c.guess_level = $depth
+        c.tried_colors = 
       RETURN
         c;
     write_access: True
