@@ -3,9 +3,7 @@
   gather_facts: false
   vars_files:
     - vars/settings/local/settings.yml
-#    - vars/solver/game-1.yml
     - vars/solver/game-2.yml
-#    - vars/solver/game-3.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
@@ -13,26 +11,23 @@
 
     # step 1: execute initial moves
     - name: calculate unforced moves
-      ansible.builtin.include_tasks: tasks/solver/initial-moves.yml
+      ansible.builtin.include_tasks: tasks/solver/deterministic/initial-moves.yml
       loop: "{{ cells_initial }}"
     
-    # step 2: execute deterministic forced moves
+    # step 2: execute deterministic moves
     - name: forced solver
-      ansible.builtin.include_tasks: tasks/solver/forced-moves.yml
+      ansible.builtin.include_tasks: tasks/solver/deterministic/forced-moves.yml
 
-    # step 3: determine if we need additional guessing
+    # step 3: guessing needed?
     - name: check puzzle solved without guessing
-      ansible.builtin.include_tasks: tasks/solver/puzzle-solved.yml
+      ansible.builtin.include_tasks: tasks/solver/deterministic/puzzle-solved.yml
 
-    # step 4: execute guessed forced moves
+    # step 4: execute by guessing
     - name: guess based solver
-      ansible.builtin.debug:
-        msg: "start guessing ..."
+      ansible.builtin.include_tasks: tasks/solver/heuristic/guess.yml
       when:
         - not puzzle_solved
 
-    # step 5: print solution
     - name: print sudoku solution
       ansible.builtin.include_tasks: tasks/solver/visualize.yml
-      when:
-        - puzzle_solved
+
