@@ -1,0 +1,18 @@
+---
+- name: check if puzzle solved
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH (c:Cell)
+      WHERE c.color = 0
+      RETURN 
+        count(c) AS remaining
+      ;
+    register: remaining_cells
+
+- name: indicate puzzle solved
+  ansible.builtin.set_fact:
+    puzzle_solved: "{{ remaining_cells.query.cypher_response[0].remaining == 0 }}"

@@ -1,123 +1,38 @@
-MATCH (c:Cell {entity_name:'C11'})-[:SEES]->(n)
-SET n.domain = [x IN n.domain WHERE x <> c.value]
+Friends asked me to sketch out the architecture of website to exchange retal houses between two main tenants.
 
+In such system we consider:
+- the properties (the rental house/rental contract)
+- the tenants (who submit their property)
+- property owner (approvers)
+- administrative user of the website
 
+A deal is struck when 2 parties agree to exchange and
+when the property owner(s) agree that the exchange is valid.
+- no stance yet on when a property has multiple owners (how does that approval work - lets leave this constraint out in first iteration)
 
-MATCH (c:Cell {entity_name:'C11'})-[:SEES]->(n)
-SET n.domain = [x IN n.domain WHERE x <> c.value]
+The system is only designed to bring tenants together and to "lock" the intention of their exchange.
 
+The website - in terms of dialogue - should be "similar" to funda.nl, which means: 
+- the property is the central object 
+- the property goes through state phases.
+- tenants and property owners change the state of the properties
 
-MATCH (c:Cell {entity_name: 'C11'})
-SET c.value = '5', c.domain = ['5']
-WITH c, '5' AS value
-MATCH (c)-[:SEES]->(n:Cell)
-WHERE n.value = 0
-SET n.domain = [x IN n.domain WHERE x <> value]
-RETURN c, n
+The system is designated for the Dutch market.
 
-MATCH (c:Cell {entity_name: 'C12'})
-SET c.domain = [x IN c.domain WHERE x <> 5]
-RETURN c
+Property owners are automatically signed up via a chamber of commerce land and enabled after an approval by the owner itself. This could be via a signup link and an explanation that a tenant wants to exchange his contract with another tenant.
 
-MATCH (c:Cell {entity_name: 'C11'})
-SET c.value = 5, c.domain = 5
-WITH c, 5 AS pp
-MATCH p = (c)-[:SEES]->(n:Cell)
-WHERE n.value = 0
-SET n.domain = [x IN n.domain WHERE x <> pp]
-RETURN c, n
+Tenants will signup manually via email-verification and subsequently are asked to perform a 0.01cent iDEAL transaction, to "validate", that they are living in the property they want to exchange.
+Refunding could be an option.
+iDEAL transaction will reveal zipcode, housenumber and "tenant" itself (could still be bogus, but that's okay)
 
+This registration is not a 100% guarantee from a legal perspective at all. The purpose is: the registration captures who is behind the transaction and the supposed tenant and if there is a mismatch, the party is already rejected in an early phase. It is to reduce noise by identifying the person who performed the payment. Final validation is performed by the property owner.
 
-    "sudoku_board": 
-    
-    5 3 4   6 7 8   9 1 2
-    6 7 2   1 9 5   3 4 8
-    1 9 8   3 4 2   5 6 7
+This will reduce annoyance under property owners and prevents a website full of bogus assets/lending contracts. Keep in mind: the owner of the property knows its tenants, so if something sips through, the owner of this website will contacted by the property owner and take action (block/removal)
 
-    8 5 9   7 6 1   4 2 3
-    4 2 6   8 5 3   7 9 1
-    7 1 3   9 2 4   8 5 6
-    
-    9 6 1   5 3 7   2 8 4
-    2 8 7   4 1 9   6 3 5
-    3 4 5   2 8 6   1 7 9
+Can you sketch out such a system.
+What are the object-models, state-diagrams and overall architecture sketch.
+Can you give advise on the front-end and back-end (Flask/FastCGI) and database. I would expect either MongoDB or MySQL/PostGresSQL. Given the simplicity of the datamodel and the RestAPI support, my initial direction would be MongoDB (RestAPI and JSON are nowadays tightly coupled).
 
+Could you fleshout userstories for Signup and user acquiring a property and tenant approving a property.
+7 days after an approval, the property should be not visible/removed from the website.
 
-               4,3,5,
-            1,6,2,
-            9,
-            8,
-            7,
-            7,
-            8,
-            2,
-            5,
-            4,
-            9,
-            3,
-            1,
-            6,
-            9,
-            6,
-            1,
-            7,
-            8,
-            3,
-            5,
-            2,
-            4,
-            6,
-            7,
-            8,
-            4,
-            3,
-            5,
-            2,
-            9,
-            1,
-            2,
-            4,
-            3,
-            9,
-            1,
-            6,
-            7,
-            5,
-            8,
-            5,
-            1,
-            9,
-            2,
-            7,
-            8,
-            4,
-            6,
-            3,
-            8,
-            9,
-            7,
-            3,
-            2,
-            1,
-            6,
-            4,
-            5,
-            3,
-            5,
-            6,
-            8,
-            9,
-            4,
-            1,
-            7,
-            2,
-            1,
-            2,
-            4,
-            6,
-            5,
-            7,
-            8,
-            3,
-            9
-    

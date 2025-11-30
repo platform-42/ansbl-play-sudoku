@@ -11,15 +11,28 @@
     - name: install platform42.neo4j dependencies
       ansible.builtin.include_tasks: tasks/dependencies/neo4j.yml
 
-    # step 1: initial moves
+    # step 1: execute initial moves
     - name: calculate unforced moves
-      ansible.builtin.include_tasks: tasks/solver/initial.yml
+      ansible.builtin.include_tasks: tasks/solver/initial-moves.yml
       loop: "{{ cells_initial }}"
     
-    # step 2: forced moves
+    # step 2: execute deterministic forced moves
     - name: forced solver
-      ansible.builtin.include_tasks: tasks/solver/forced.yml
+      ansible.builtin.include_tasks: tasks/solver/forced-moves.yml
 
-    # print board
-    - name: print sudoku board
+    # step 3: determine if we need additional guessing
+    - name: check puzzle solved without guessing
+      ansible.builtin.include_tasks: tasks/solver/puzzle-solved.yml
+
+    # step 4: execute guessed forced moves
+    - name: guess based solver
+      ansible.builtin.debug:
+        msg: "start guessing ..."
+      when:
+        - not puzzle_solved
+
+    # step 5: print solution
+    - name: print sudoku solution
       ansible.builtin.include_tasks: tasks/solver/visualize.yml
+      when:
+        - puzzle_solved

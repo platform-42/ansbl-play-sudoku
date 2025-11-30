@@ -1,4 +1,8 @@
 ---
+- name: 
+  ansible.builtin.set_fact:
+    depth: 0
+
 - name: candidate minimum remaining values
   platform42.neo4j.query:
     neo4j_uri: "{{ NEO4J_URI }}"
@@ -18,14 +22,13 @@
         c.color = c.domain[0],
         c.assigned_by_guess = true,
         c.guess_level = $depth
-        c.tried_colors = 
       RETURN
         c;
     write_access: True
     parameters:
       depth:
         type: int
-        value: 0
+        value: "{{ depth }}"
   register: guessed
 
 
