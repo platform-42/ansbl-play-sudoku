@@ -11,6 +11,7 @@
       RETURN 
         count(c) AS remaining
       ;
+    write_access: false
     register: remaining_cells
 
 - name: indicate puzzle solved
