@@ -1,0 +1,9 @@
+---
+- name: pick MRV cell
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-pick-mrv.yml
+
+- name: stop if solved during guessing
+  ansible.builtin.set_fact:
+    puzzle_solved: "{{ mrv_found == false }}"
+
+

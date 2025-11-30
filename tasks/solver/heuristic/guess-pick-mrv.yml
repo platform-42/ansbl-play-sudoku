@@ -1,0 +1,35 @@
+---
+- name: query MRV cell
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH (c:Cell)
+      WHERE c.color = 0
+      WITH c, size(c.domain) AS d
+      ORDER BY d ASC
+      LIMIT 1
+      RETURN 
+        c.row AS row, 
+        c.column AS col, 
+        c.domain AS domain
+        ;
+  register: mrv_cell
+
+- name: detect if we have MRV
+  ansible.builtin.set_fact:
+    mrv_found: "{{ mrv_cell.query.cypher_response | length > 0 }}"
+
+- name: export MRV values
+  set_fact:
+    mrv_row: "{{ mrv_cell.query.cypher_response[0].row }}"
+    mrv_col: "{{ mrv_cell.query.cypher_response[0].col }}"
+    mrv_domain: "{{ mrv_cell.query.cypher_response[0].domain }}"
+  when: 
+    - mrv_found
+
+- name: print
+  ansible.builtin.debug:
+    var: mrv_cell.query.cypher_response

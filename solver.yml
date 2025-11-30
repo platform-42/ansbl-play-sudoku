@@ -22,9 +22,9 @@
     - name: check puzzle solved without guessing
       ansible.builtin.include_tasks: tasks/solver/deterministic/puzzle-solved.yml
 
-    # step 4: execute by guessing
+    # step 4: execute by guessing -> switch to heuristic approach
     - name: guess based solver
-      ansible.builtin.include_tasks: tasks/solver/heuristic/guess.yml
+      ansible.builtin.include_tasks: tasks/solver/heuristic/guess-or-solve.yml
       when:
         - not puzzle_solved
 
