@@ -1,4 +1,6 @@
 ---
+# guess-rollback.yml
+
 - name: rollback board to previous guess level
   platform42.neo4j.query:
     neo4j_uri: "{{ NEO4J_URI }}"
@@ -26,6 +28,7 @@
         type: int
         value: "{{ guess_level }}"
   register: rollback_result
+
 
 - name: notify rollback result
   ansible.builtin.debug:

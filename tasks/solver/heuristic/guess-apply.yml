@@ -1,4 +1,9 @@
 ---
+# guess-apply.yml
+- name: increment guess level
+  ansible.builtin.set_fact:
+    guess_level: "{{ guess_level + 1 }}"
+
 #
 #   - select the MRV guess cell (g) $candidate 
 #   - select all neighbor cells (n) whose domain contains the guessed candidate
@@ -86,17 +91,17 @@
         value: "{{ guess_level }}"
 
 - name: propagate forced moves from guess
-  ansible.builtin.include_tasks: task/solver/heuristics/guess-propagate.yml
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-propagate.yml
 
 - name: check for contradiction
-  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-contradiction.yml
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-contradiction.yml
 
 - name: contradiction detected -> rollback
-  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-rollback.yml
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-rollback.yml
   when: 
-    - contradiction
+    - contradiction_found
 
 - name: no contradiction -> keep on going
-  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-or-solve.yml
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-or-solve.yml
   when: 
-    - not contradiction
+    - not contradiction_found
