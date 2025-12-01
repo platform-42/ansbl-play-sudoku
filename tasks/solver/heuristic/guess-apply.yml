@@ -26,15 +26,23 @@
         n.color = 0 AND 
         $candidate IN n.domain
       WITH 
-        collect(n) + [g] AS cells
+        collect(n) AS neighbors, g
       UNWIND 
-        cells AS c
+        neighbors AS n
+      WITH 
+        n AS c
+      SET 
+        c.domain_backup = c.domain,
+        c.color_backup = c.color,
+        c.guess_level = $guess_level
+      WITH 
+        g AS c
       SET 
         c.domain_backup = c.domain,
         c.color_backup = c.color,
         c.guess_level = $guess_level
       RETURN 
-        count(c) AS backed
+        count(*) AS backed
         ;
     write_access: True
     parameters:
