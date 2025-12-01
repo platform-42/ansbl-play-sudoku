@@ -30,6 +30,6 @@
   when: 
     - mrv_found
 
-- name: print
-  ansible.builtin.debug:
-    var: mrv_cell.query.cypher_response
+- name: stop if solved during guessing
+  ansible.builtin.set_fact:
+    puzzle_solved: "{{ mrv_found == false }}"

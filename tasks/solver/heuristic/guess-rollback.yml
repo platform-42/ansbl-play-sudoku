@@ -1,0 +1,32 @@
+---
+- name: rollback board to previous guess level
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (c:Cell)
+      WHERE 
+        c.guess_level = $guess_level
+      SET 
+        c.domain = c.domain_backup,
+        c.color  = c.color_backup,
+        c.domain_backup = [],
+        c.color_backup = 0,
+        c.guess_level = 0,
+        c.assigned_by_guess = false
+      RETURN 
+        count(c) AS restored
+        ;
+    write_access: True
+    parameters:
+      guess_level:
+        type: int
+        value: "{{ guess_level }}"
+  register: rollback_result
+
+- name: notify rollback result
+  ansible.builtin.debug:
+    msg: "Rollback restored {{ rollback_result.query.cypher_response[0].restored }} cells."

@@ -9,13 +9,23 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     query: |
-      MATCH (c:Cell {entity_name: $entity_name})
-      SET c.color = $color, c.domain = [$color]
-      WITH c, $color AS color
-      MATCH (c)-[:SEES]->(n:Cell)
-      WHERE n.color = 0
-      SET n.domain = [x IN n.domain WHERE x <> color]
-      RETURN c, n
+      MATCH 
+        (c:Cell {entity_name: $entity_name})
+      SET 
+        c.color = $color, 
+        c.domain = [$color]
+      WITH 
+        c, 
+        $color AS color
+      MATCH 
+        (c)-[:SEES]->(n:Cell)
+      WHERE 
+        n.color = 0
+      SET 
+        n.domain = [x IN n.domain WHERE x <> color]
+      RETURN 
+        c, n
+        ;
     write_access: True
     parameters:
       entity_name: 

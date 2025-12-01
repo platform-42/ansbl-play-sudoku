@@ -1,0 +1,42 @@
+---
+- name: check contradiction type A (empty domain)
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (c:Cell)
+      WHERE 
+        c.color = 0 AND 
+        size(c.domain) = 0
+      RETURN 
+        count(c) AS contradictions
+        ;
+  register: contradiction_A
+
+- name: check contradiction type B (two seeing cells with same color)
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+      (a:Cell)-[:SEES]-(b:Cell)
+      WHERE 
+        a.color <> 0 AND 
+        a.color = b.color
+      RETURN 
+        count(a) AS contradictions;
+  register: contradiction_B
+
+- name: set contradiction flags
+  ansible.builtin.set_fact:
+    has_contradiction_A: "{{ contradiction_A.query.cypher_response[0].contradictions > 0 }}"
+    has_contradiction_B: "{{ contradiction_B.query.cypher_response[0].contradictions > 0 }}"
+
+- name: set contradiction status
+  ansible.builtin.set_fact:
+    contradiction_found: "{{ has_contradiction_A or has_contradiction_B }}"

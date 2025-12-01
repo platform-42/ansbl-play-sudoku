@@ -1,0 +1,102 @@
+---
+#
+#   - select the MRV guess cell (g) $candidate 
+#   - select all neighbor cells (n) whose domain contains the guessed candidate
+#   - backs up domain + color + guess_level on all affected cells
+#   - unwind found neighbor cells (n) - unwind acts as an iterator
+#   - return count to confirm backup size
+#
+- name: backup affected cells before guess
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (g:Cell {row: $row, column: $col})
+      MATCH 
+        (g)-[:SEES]-(n:Cell)
+      WHERE 
+        n.color = 0 AND 
+        $candidate IN n.domain
+      WITH 
+        collect(n) + g AS cells
+      UNWIND 
+        cells AS c
+      SET 
+        c.domain_backup = c.domain,
+        c.color_backup = c.color,
+        c.guess_level = $guess_level
+      RETURN 
+        count(c) AS backed
+        ;
+    write_access: True
+    parameters:
+      row: 
+        value: "{{ mrv_row }}"
+        type: int
+      col:
+        type: int
+        value: "{{ mrv_col }}"
+      candidate: 
+        type: int
+        value: "{{ candidate }}"
+      guess_level: 
+        type: int
+        value: "{{ guess_level }}"
+  register: backup_res
+
+#
+#   - assign guessed value ($candidate_color)
+#   - marks as guess-based to distinguish from deterministic moves (forced ones)
+#   - store guess_level
+#   - append candidate to the tried list
+#
+- name: apply guess to MRV
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (c:Cell {row: $row, column: $col})
+      SET 
+        c.color = $candidate,
+        c.assigned_by_guess = true,
+        c.guess_level = $guess_level,
+        c.tried_colors = c.tried_colors + [$candidate]
+      RETURN 
+        c
+        ;
+    write_access: True
+    parameters:
+      row: 
+        value: "{{ mrv_row }}"
+        type: int
+      col:
+        type: int
+        value: "{{ mrv_col }}"
+      candidate: 
+        type: int
+        value: "{{ candidate }}"
+      guess_level: 
+        type: int
+        value: "{{ guess_level }}"
+
+- name: propagate forced moves from guess
+  ansible.builtin.include_tasks: task/solver/heuristics/guess-propagate.yml
+
+- name: check for contradiction
+  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-contradiction.yml
+
+- name: contradiction detected -> rollback
+  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-rollback.yml
+  when: 
+    - contradiction
+
+- name: no contradiction -> keep on going
+  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-or-solve.yml
+  when: 
+    - not contradiction

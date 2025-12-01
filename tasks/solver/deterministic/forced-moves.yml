@@ -6,11 +6,15 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     query: |
-      MATCH (c:Cell)
-      WHERE c.color = 0 AND size(c.domain) = 1
+      MATCH 
+        (c:Cell)
+      WHERE 
+        c.color = 0 AND 
+        size(c.domain) = 1
       RETURN 
         c.entity_name AS entity_name,
         c.domain[0] AS color
+        ;
   register: forced
 
 - name: indicate new forced moves

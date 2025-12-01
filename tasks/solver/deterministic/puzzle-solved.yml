@@ -6,11 +6,13 @@
     username: "{{ NEO4J_USERNAME }}"
     password: "{{ NEO4J_PASSWORD }}"
     query: |
-      MATCH (c:Cell)
-      WHERE c.color = 0
+      MATCH 
+        (c:Cell)
+      WHERE 
+        c.color = 0
       RETURN 
         count(c) AS remaining
-      ;
+        ;
   register: remaining_cells
 
 - name: indicate puzzle solved

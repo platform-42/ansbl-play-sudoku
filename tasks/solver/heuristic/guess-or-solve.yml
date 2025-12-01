@@ -1,9 +1,25 @@
 ---
-- name: pick MRV cell
-  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-pick-mrv.yml
+# guess -> pick MRV
+- name: pick guessing cell
+  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-pick-mrv.yml
 
-- name: stop if solved during guessing
+# no MRV -> puzzle solved
+- name: stop puzzle
   ansible.builtin.set_fact:
     puzzle_solved: "{{ mrv_found == false }}"
 
+# propagate guess to neighbors
+- name: propagate guess
+  ansible.builtin.include_tasks: tasks/solver/heuristics/guess-apply.yml
+  loop: "{{ mrv_domain }}"
+  loop_control:
+    loop_var: candidate
+  when:
+    - not puzzle_solved 
+
+# if not solved -> rollback parent and return failure
+- name: no candidate succeeded
+  ansible.builtin.include_tasks: guess-rollback.yml
+  when: 
+    - not puzzle_solved
 
