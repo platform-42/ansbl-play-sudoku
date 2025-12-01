@@ -38,6 +38,14 @@
     has_contradiction_A: "{{ contradiction_A.query.cypher_response[0].contradictions > 0 }}"
     has_contradiction_B: "{{ contradiction_B.query.cypher_response[0].contradictions > 0 }}"
 
+- name: print flags
+  ansible.builtin.debug:
+    var: has_contradiction_A
+
+- name: print flags
+  ansible.builtin.debug:
+    var: has_contradiction_B
+
 - name: set contradiction status
   ansible.builtin.set_fact:
     contradiction_found: "{{ has_contradiction_A or has_contradiction_B }}"
