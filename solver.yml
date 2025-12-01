@@ -16,7 +16,7 @@
     
     # step 2: execute deterministic moves
     - name: forced solver
-      ansible.builtin.include_tasks: tasks/solver/deterministic/forced-moves.yml
+      ansible.builtin.include_tasks: tasks/solver/deterministic/forced-propagate.yml
 
     # step 3: guessing needed?
     - name: check puzzle solved without guessing

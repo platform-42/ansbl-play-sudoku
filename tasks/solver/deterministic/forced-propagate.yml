@@ -26,11 +26,11 @@
      var: has_forced_moves
 
 - name: calculate forced moves
-  ansible.builtin.include_tasks: tasks/solver/initial.yml
+  ansible.builtin.include_tasks: tasks/solver/deterministic/forced-apply.yml
   loop: "{{ forced.query.cypher_response }}"
 
 - name: call recursively
-  ansible.builtin.include_tasks: tasks/solver/forced.yml
+  ansible.builtin.include_tasks: tasks/solver/deterministic/forced-propagate.yml
   when:
     - has_forced_moves
 
