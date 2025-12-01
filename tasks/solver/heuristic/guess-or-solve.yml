@@ -1,6 +1,9 @@
 ---
 # guess-or-solve.yml
-
+- name: debug 
+  ansible.builtin.debug:
+    msg: "**** GUESS-OR_SOLVE ****"
+    
 # guess -> pick MRV
 - name: pick guessing cell
   ansible.builtin.include_tasks: tasks/solver/heuristic/guess-pick-mrv.yml
