@@ -19,14 +19,14 @@
       ansible.builtin.include_tasks: tasks/solver/deterministic/forced-propagate.yml
 
     # step 3: guessing needed?
-    - name: check puzzle solved without guessing
-      ansible.builtin.include_tasks: tasks/solver/deterministic/puzzle-solved.yml
+#    - name: check puzzle solved without guessing
+#      ansible.builtin.include_tasks: tasks/solver/deterministic/puzzle-solved.yml
 
     # step 4: execute by guessing -> switch to heuristic approach
-    - name: guess based solver
-      ansible.builtin.include_tasks: tasks/solver/heuristic/guess-or-solve.yml
-      when:
-        - not puzzle_solved
+#    - name: guess based solver
+#      ansible.builtin.include_tasks: tasks/solver/heuristic/guess-or-solve.yml
+#      when:
+#        - not puzzle_solved
 
     - name: print sudoku solution
       ansible.builtin.include_tasks: tasks/solver/visualize.yml
