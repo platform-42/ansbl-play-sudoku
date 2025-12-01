@@ -12,6 +12,12 @@
     - name: check puzzle solved without guessing
       ansible.builtin.include_tasks: tasks/solver/deterministic/puzzle-solved.yml
 
+    - name: initialize guess level
+      ansible.builtin.set_fact:
+        guess_level: 0
+      when: 
+        - not puzzle_solved
+
     - name: guess based solver
       ansible.builtin.include_tasks: tasks/solver/heuristic/guess-or-solve.yml
       when:

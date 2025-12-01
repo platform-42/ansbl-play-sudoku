@@ -1,0 +1,117 @@
+---
+# guess-apply-single.yml
+
+- name: increment guess level
+  ansible.builtin.set_fact:
+    guess_level: "{{ guess_level | int + 1 }}"
+
+- name: debug
+  ansible.builtin.debug:
+    msg: "Trying candidate {{ candidate }} at guess_level {{ guess_level }}"
+
+# Backup affected cells (MRV + neighbors)
+- name: backup all affected cells before guess
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (g:Cell {row:$row, column:$col})
+      MATCH 
+        (g)-[:SEES]-(n:Cell)
+      WHERE 
+        n.color = 0 AND 
+        $candidate IN n.domain
+      WITH 
+        g, 
+        collect(n) AS neighbors
+      UNWIND 
+        neighbors AS c
+      SET 
+        c.domain_backup = c.domain,
+        c.color_backup = c.color,
+        c.guess_level = $guess_level
+      WITH 
+        g
+      SET 
+        g.domain_backup = g.domain,
+        g.color_backup = g.color,
+        g.guess_level = $guess_level
+      RETURN 
+        count(*) AS backed
+        ;
+    write_access: True
+    parameters:
+      row:  
+        value: "{{ mrv_row }}" 
+        type: int
+      col: 
+        value: "{{ mrv_col }}"
+        type: int 
+      candidate: 
+        value: "{{ candidate }}"
+        type: int 
+      guess_level: 
+        value: "{{ guess_level }}"
+        type: int 
+  register: backup_res
+
+- name: assign candidate to MRV cell
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (c:Cell {row:$row, column:$col})
+      SET 
+        c.color = $candidate,
+        c.assigned_by_guess = true,
+        c.guess_level = $guess_level,
+        c.tried_colors = c.tried_colors + [$candidate]
+      RETURN 
+        c
+        ;
+    write_access: True
+    parameters:
+      row: 
+        value: "{{ mrv_row }}"
+        type: int
+      col:  
+        value: "{{ mrv_col }}"
+        type: int 
+      candidate: 
+        value: "{{ candidate }}"
+        type: int
+      guess_level: 
+        value: "{{ guess_level }}"
+        type: int 
+
+# propagate forced moves after this guess
+- name: propagate forced moves from guess
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-propagate.yml
+
+# check for contradiction
+- name: check contradiction after candidate
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-contradiction.yml
+
+# if no contradiction -> recurse deeper
+- name: continue solving if no contradiction
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-or-solve.yml
+  when: 
+    - not contradiction_found
+
+# if contradiction or recursion failed -> rollback
+- name: rollback this candidate if failed
+  ansible.builtin.include_tasks: tasks/solver/heuristic/guess-rollback.yml
+  when: 
+    - contradiction_found or not puzzle_solved
+
+- name: decrement guess level after candidate finished
+  ansible.builtin.set_fact:
+    guess_level: "{{ guess_level | int - 1 }}"
+  when: 
+    - guess_level > 0

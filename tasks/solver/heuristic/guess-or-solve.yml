@@ -13,19 +13,9 @@
   ansible.builtin.set_fact:
     puzzle_solved: "{{ mrv_found == false }}"
 
-# initial value
-- name: initialize guess level
-  ansible.builtin.set_fact:
-    guess_level: 0
-  when: 
-    - not puzzle_solved
-
 # propagate guess to neighbors
 - name: propagate guess
   ansible.builtin.include_tasks: tasks/solver/heuristic/guess-apply.yml
-  loop: "{{ mrv_domain }}"
-  loop_control:
-    loop_var: candidate
   when:
     - not puzzle_solved 
 
