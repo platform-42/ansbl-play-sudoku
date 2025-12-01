@@ -29,6 +29,9 @@
         value: "{{ guess_level }}"
   register: rollback_result
 
+- name: increment guess level
+  ansible.builtin.set_fact:
+    guess_level: "{{ guess_level | int - 1 }}"
 
 - name: notify rollback result
   ansible.builtin.debug:
