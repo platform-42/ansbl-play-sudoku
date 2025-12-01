@@ -2,7 +2,7 @@
 # guess-apply.yml
 - name: increment guess level
   ansible.builtin.set_fact:
-    guess_level: "{{ guess_level + 1 }}"
+    guess_level: "{{ guess_level | int + 1 }}"
 
 #
 #   - select the MRV guess cell (g) $candidate 
@@ -99,7 +99,7 @@
 
 - name: propagate forced moves from guess
   ansible.builtin.include_tasks: tasks/solver/heuristic/guess-propagate.yml
-
+  
 - name: check for contradiction
   ansible.builtin.include_tasks: tasks/solver/heuristic/guess-contradiction.yml
 

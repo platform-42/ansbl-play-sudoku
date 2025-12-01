@@ -1,0 +1,26 @@
+---
+- name: propagate forced moves from guess
+  platform42.neo4j.query:
+    neo4j_uri: "{{ NEO4J_URI }}"
+    database: "{{ NEO4J_DATABASE }}"
+    username: "{{ NEO4J_USERNAME }}"
+    password: "{{ NEO4J_PASSWORD }}"
+    query: |
+      MATCH 
+        (c:Cell)
+      WHERE 
+        c.color = 0 AND 
+        size(c.domain) = 1
+      SET 
+        c.color = c.domain[0],
+        c.assigned_by_guess = true,
+        c.guess_level = $guess_level
+      RETURN 
+        count(c) AS propagated
+        ;
+    write_access: True
+    parameters:
+      guess_level:
+        value: "{{ guess_level }}"
+        type: int
+  register: propagated
