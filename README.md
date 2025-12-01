@@ -1,6 +1,6 @@
 tasks/solver/
   deterministic/
-    initial-moves.yml
+    forced-apply.yml
     forced-moves.yml
     puzzle-solved.yml
 

@@ -11,7 +11,7 @@
 
     # step 1: execute initial moves
     - name: calculate unforced moves
-      ansible.builtin.include_tasks: tasks/solver/deterministic/initial-moves.yml
+      ansible.builtin.include_tasks: tasks/solver/deterministic/forced-apply.yml
       loop: "{{ cells_initial }}"
     
     # step 2: execute deterministic moves
