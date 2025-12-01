@@ -59,6 +59,14 @@
         value: "{{ guess_level }}"
   register: backup_res
 
+- name: backed-up
+  ansible.builtin.debug:
+    var: backup_res.cypher_response
+
+- name: Pause to check backup of neighbors
+  ansible.builtin.pause:
+    prompt: "Backup completed"
+
 #
 #   - assign guessed value ($candidate_color)
 #   - marks as guess-based to distinguish from deterministic moves (forced ones)
