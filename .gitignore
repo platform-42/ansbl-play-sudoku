@@ -1,0 +1,11 @@
+# Python virtual environments
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# macOS noise
+.DS_Store
