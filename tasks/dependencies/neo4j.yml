@@ -4,4 +4,5 @@
     name:
       - neo4j>=5.0,<6.0
       - regex
+      - StrEnum
     state: present
