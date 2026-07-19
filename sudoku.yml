@@ -15,6 +15,7 @@
 
     - name: create 3x3 Sudoku nodes
       ansible.builtin.include_tasks: tasks/vertices/singleton/cells.yml
+      with_items: "{{ cells }}"
 
     - name: create Sudoku relationships
       ansible.builtin.include_tasks: tasks/edges/singleton/sees.yml
