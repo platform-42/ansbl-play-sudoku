@@ -19,4 +19,4 @@
 
     - name: create Sudoku relationships
       ansible.builtin.include_tasks: tasks/edges/singleton/sees.yml
-
+      with_items: "{{ sees }}"
