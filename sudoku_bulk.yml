@@ -1,6 +1,8 @@
 - name: Sudoku
   hosts: localhost
   gather_facts: false
+  vars_files:
+    - vars/settings/local/settings.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
