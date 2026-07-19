@@ -3,8 +3,8 @@
   gather_facts: false
   vars_files:
     - vars/settings/local/settings.yml
-    - vars/vertices/cells.yml
-    - vars/edges/sees.yml
+    - vars/vertices/singleton/cells.yml
+    - vars/edges/singleton/sees.yml
 
   tasks:
     - name: install platform42.neo4j dependencies
@@ -14,8 +14,8 @@
       ansible.builtin.include_tasks: tasks/database/database.yml
 
     - name: create 3x3 Sudoku nodes
-      ansible.builtin.include_tasks: tasks/vertices/bulk/cells_bulk.yml
+      ansible.builtin.include_tasks: tasks/vertices/singleton/cells.yml
 
     - name: create Sudoku relationships
-      ansible.builtin.include_tasks: tasks/edges/bulk/sees_bulk.yml
+      ansible.builtin.include_tasks: tasks/edges/singleton/sees.yml
 
